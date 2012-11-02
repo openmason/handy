@@ -1,0 +1,15 @@
+{
+  "name": "handy",
+  "description": "Common utility functions",
+  "homepage": "https://github.com/openmason/handy",
+  "version": "0.0.1",
+  "author": "el aras <openmason@gmail.com>",
+  "dependencies": {
+  },
+  "devDependencies": [],
+  "keywords": ["handy", "utilities", "utility", "belt"],
+  "repository": {"type":"git", "url": "git://github.com/openmason/handy"},
+  "main": "index",
+  "scripts": { "prepublish" : "npm prune" },
+  "engines": { "node":">= 0.5.0" }
+}

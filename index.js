@@ -10,11 +10,11 @@ var path = require('path');
 /**
  * Get the version of current package in package.json
  * - packageDir - pass the path where package.json is present 
- *        or will look for package.json in ../..
+ *        or will look for package.json in __dirname/..
  * [return]  version value (or) empty string if not found
  */
 exports.getVersion = function (packageDir) {
-  var pathName = packageDir || path.join("..","..");
+  var pathName = packageDir || path.join(__dirname,'..','..');
   // check if file is present
   pathName = path.join(pathName, 'package.json');
   if(fs.existsSync(pathName)) {

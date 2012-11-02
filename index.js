@@ -8,7 +8,7 @@ var fs   = require('fs');
 var path = require('path');
 
 /**
- * Return the version of current package in package.json
+ * Get the version of current package in package.json
  * - packageDir - pass the path where package.json is present 
  *        or will look for package.json in ../..
  * [return]  version value (or) empty string if not found
@@ -23,3 +23,11 @@ exports.getVersion = function (packageDir) {
   return "";
 };
 
+/**
+ * Get user home directory.
+ * - in case of win uses 'USERPROFILE'
+ * - in case of other platforms uses 'HOME'
+ */
+exports.getUserHome = function() {
+  return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+};

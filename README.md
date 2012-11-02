@@ -8,6 +8,9 @@ Bunch of common utility functions
       * [1] path where package.json is present (optional)
     * returns - value of 'version' in package.json
 
+  * getUserHome
+    * returns - home directory for current user (platform agnostic)
+
 ## Install
 
     $ npm install handy

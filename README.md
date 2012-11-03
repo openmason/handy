@@ -39,6 +39,16 @@ Bunch of common utility functions
             var r = handy.merge(x,y,z);
             // r => {a:4, b:2, c:5}
 
+  * deepMerge - merge objects, all hashes at all levels are merged (arrays left intact)
+    * arguments
+      1. variable arguments, pass objects that needs to be deep merged
+    * returns - merged object (or) {} 
+    
+            var handy = require('handy');
+            var x = {a:1,p:{a:5}}, y={b:2}, z={a:4,c:5,p:{a:3,b:11}};
+            var r = handy.deepMerge(x,y,z);
+            // r => {a:4, b:2, c:5, p:{a:3,b:11}}
+
 ## Install
 
     $ npm install handy

@@ -67,3 +67,33 @@ exports.merge = function() {
   }
   return res;
 };
+
+/**
+ * Deep Merge objects and return back
+ * the combined object.
+ * -- pass in multiple arguments
+ * on failure, would return an empty object ({})
+ */
+exports.deepMerge = function() {
+  var res = {};
+  for(var i=0;i<arguments.length;i++) {
+    if(this.getType(arguments[i]) != 'object') return res;
+  }
+  var self=this;
+  // merge all the objects to res
+  // keys get overwritten from left to right
+  for(i=0;i<arguments.length;i++) {
+    var obj = arguments[i];
+    Object.keys(obj).forEach(function (key) {
+      var val = obj[key];
+      if(res.hasOwnProperty(key) && 
+         self.getType(val)=='object' &&
+         self.getType(res[key]=='object')) {
+        res[key] = self.deepMerge(res[key], val);
+      } else {
+        res[key] = obj[key];
+      }
+    });
+  }
+  return res;
+};

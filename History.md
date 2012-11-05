@@ -1,4 +1,4 @@
-# release 0.0.6
+# release 0.0.7
  * added deepMerge
  * added getType, merge
  * added getUserHome

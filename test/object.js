@@ -54,7 +54,17 @@ describe('object', function() {
     });
     it('invalid objects', function(done) {
       var x = {}, y=[1,2,3];
-      assert.deepEqual(handy.merge(x,y), x);
+      assert.deepEqual(handy.merge(x,y), {0:1,1:2,2:3});
+      done();
+    });
+    it('array objects', function(done) {
+      var x = {}, y=[1,2,3];
+      assert.deepEqual(handy.merge(y,x), y);
+      done();
+    });
+    it('array merge', function(done) {
+      var x = [4,5,6,7], y=[1,2,3];
+      assert.deepEqual(handy.merge(x,y), [1,2,3,7]);
       done();
     });
     it('replace string', function(done) {

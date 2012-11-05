@@ -2,7 +2,7 @@
   "name": "handy",
   "description": "Common utility functions",
   "homepage": "https://github.com/openmason/handy",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "el aras <openmason@gmail.com>",
   "dependencies": {
   },

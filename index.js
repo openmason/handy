@@ -47,6 +47,18 @@ exports.getType = function(obj) {
 };
 
 /**
+ * Find the file extension (after the last '.').
+ * For no extension cases, a default extension can be passed as second argument
+ * [returns] string after '.' (extension) or default extension if no '.' found
+ */
+exports.getFileExtension = function(filename, defaultExtension)
+{
+  var pattern = /^.*?\.([^.]*)$/g;
+  var lastWord = pattern.exec(filename);
+  return lastWord && lastWord[1].length>0?lastWord[1]:(defaultExtension?defaultExtension:"");
+};
+
+/**
  * Compare two arrays for equality (only one level check)
  *
  * [returns] false if both are not equal (or) true if equal

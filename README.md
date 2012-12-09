@@ -31,6 +31,17 @@ Bunch of common utility functions
               ... do something ...
             };
 
+  * getFileExtension
+    * arguments
+      1. filename - filename for which the extension to be returned
+      2. defaultExt - default extension if no extension found
+    * returns - extension from the filename (or) defaultExt 
+    
+            var handy = require('handy');
+            var x = "abc/this/there.x.y.j"
+            var r = handy.getFileExtension(x);
+            // r => 'j'
+
   * isArrayEqual - check if two arrays are equal, irrespective of order of elements
     * arguments: pass two array objects
     * returns - true (if both arrays are equal), else false

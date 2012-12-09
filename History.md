@@ -1,4 +1,5 @@
-# release 0.0.9
+# release 0.0.10
+ * added getFileExtension
  * added isArrayEqual
  * added deepMerge
  * added getType, merge

@@ -6,6 +6,7 @@ var fs = require('fs');
 // verify basic functions
 // - getVersion
 // - getUserHome
+// - getFileExtension
 describe('basic', function() {
   before(function(done) {
     done();
@@ -40,5 +41,42 @@ describe('basic', function() {
       done();
     });
   });
+
+  // -- getFileExtension
+  describe('getFileExtension', function() {
+    it('no extension', function(done) {
+      assert.equal(handy.getFileExtension("hello my file"), "");
+      done();
+    });
+    it('default extension', function(done) {
+      assert.equal(handy.getFileExtension("hello my file", "json"), "json");
+      done();
+    });
+    it('no extension, just .', function(done) {
+      assert.equal(handy.getFileExtension("hello."), "");
+      done();
+    });
+    it('default extension with just .', function(done) {
+      assert.equal(handy.getFileExtension("hello.", "json"), "json");
+      done();
+    });
+    it('simple extension a.ml', function(done) {
+      assert.equal(handy.getFileExtension("a.ml", "json"), "ml");
+      done();
+    });
+    it('simple extension a.mybigextension', function(done) {
+      assert.equal(handy.getFileExtension("a.mybigextension", "json"), "mybigextension");
+      done();
+    });
+    it('extension a.my.b.c', function(done) {
+      assert.equal(handy.getFileExtension("a.my.b.c", "json"), "c");
+      done();
+    });
+    it('extension with path x/y/../.././x.c++', function(done) {
+      assert.equal(handy.getFileExtension("x/y/../.././x.c++", "json"), "c++");
+      done();
+    });
+  });
+
 
 });

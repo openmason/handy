@@ -1,4 +1,5 @@
 # release 0.0.10
+ * added travis-ci
  * added getFileExtension
  * added isArrayEqual
  * added deepMerge

@@ -47,6 +47,21 @@ exports.getType = function(obj) {
 };
 
 /**
+ * Compare two arrays for equality (only one level check)
+ *
+ * [returns] false if both are not equal (or) true if equal
+ */
+exports.isArrayEqual = function (arrayOne, arrayTwo) {
+  if(this.getType(arrayOne) !== 'array' || 
+     this.getType(arrayTwo) !== 'array' || 
+     arrayOne.length !== arrayTwo.length) {
+    return false;
+  }
+  // use slice, so not to impact the original array
+  return arrayOne.slice().sort().toString() === arrayTwo.slice().sort().toString();
+};
+
+/**
  * Merge (one level) objects and return back
  * the combined object.
  * -- pass in multiple arguments
@@ -93,3 +108,6 @@ exports.deepMerge = function() {
   }
   return res;
 };
+
+
+// -- EOF

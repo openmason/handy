@@ -1,4 +1,5 @@
-# release 0.0.7
+# release 0.0.9
+ * added isArrayEqual
  * added deepMerge
  * added getType, merge
  * added getUserHome

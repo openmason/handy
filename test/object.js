@@ -3,6 +3,7 @@ var assert=require('assert');
 
 // verify object functions
 // - getType
+// - isArrayEqual
 // - merge
 // - deepMerge
 describe('object', function() {
@@ -36,6 +37,46 @@ describe('object', function() {
     it('regex', function(done) {
       assert.equal(handy.getType(123), 'number');
       assert.equal(handy.getType(123+45), 'number');
+      done();
+    });
+  });
+
+  // -- isArrayEqual
+  describe('isArrayEqual', function() {
+    it('non array', function(done) {
+      var x = {}, y=123;
+      assert.equal(handy.isArrayEqual(x,y), false);
+      done();
+    });
+    it('one array', function(done) {
+      var x = [123], y=123;
+      assert.equal(handy.isArrayEqual(x,y), false);
+      done();
+    });
+    it('different sizes', function(done) {
+      var x = [123], y=[1,123];
+      assert.equal(handy.isArrayEqual(x,y), false);
+      done();
+    });
+    // validity test cases
+    it('empty equal', function(done) {
+      var x = [], y=[];
+      assert.equal(handy.isArrayEqual(x,y), true);
+      done();
+    });
+    it('ordered equal', function(done) {
+      var x = [1,2,7], y=[1,2,7];
+      assert.equal(handy.isArrayEqual(x,y), true);
+      done();
+    });
+    it('not ordered equal', function(done) {
+      var x = [1,2,7], y=[7, 1,2];
+      assert.equal(handy.isArrayEqual(x,y), true);
+      done();
+    });
+    it('not equal', function(done) {
+      var x = [1,2,7], y=[7,5,2];
+      assert.equal(handy.isArrayEqual(x,y), false);
       done();
     });
   });

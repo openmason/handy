@@ -31,6 +31,15 @@ Bunch of common utility functions
               ... do something ...
             };
 
+  * isArrayEqual - check if two arrays are equal, irrespective of order of elements
+    * arguments: pass two array objects
+    * returns - true (if both arrays are equal), else false
+    
+            var handy = require('handy');
+            var x = [93,1,6], y=[6,93,1];
+            var r = handy.isArrayEqual(x,y);
+            // r => true
+
   * merge - shallow merge objects
     * arguments
       1. variable arguments, pass objects that needs to be merged

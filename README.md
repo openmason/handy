@@ -1,3 +1,5 @@
+[![build status](https://secure.travis-ci.org/openmason/handy.png)](http://travis-ci.org/openmason/handy)
+
 # handy
 Bunch of common utility functions
 

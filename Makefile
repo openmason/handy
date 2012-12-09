@@ -12,5 +12,5 @@ test-cov: lib-cov
 lib-cov:
 	@jscoverage lib lib-cov
 
-.PHONY: test test-unit
+.PHONY: test
 

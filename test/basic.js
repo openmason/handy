@@ -27,7 +27,7 @@ describe('basic', function() {
   });
 
   // -- getUserHome
-  describe('getUserVersion', function() {
+  describe('getUserHome', function() {
     it('should return the correct home', function(done) {
       var plat = process.platform;
       // if win32, should not return a home starting with '/'

@@ -6,7 +6,9 @@ Bunch of common utility functions
   * getVersion
     * arguments
       1. path where package.json is present (optional)
-    * returns - value of 'version' in package.json
+    * returns
+      * value of 'version' in package.json (or)
+      * emptry string if unable to find package.json
     * example:
     
             var handy = require('handy');
@@ -21,7 +23,7 @@ Bunch of common utility functions
   * getType
     * arguments
       1. object - for which type to be determined
-    * returns - type of the object in lowercase ('number', 'array', 'object ...)
+    * returns - type of the object in lowercase ('number', 'array', 'object', 'regex' ...)
     
             var handy = require('handy');
             var xyz = [1,2,3];

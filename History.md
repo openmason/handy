@@ -1,4 +1,5 @@
-# release 0.0.10
+# release 0.0.11
+ * only works nodejs > 0.8
  * added travis-ci
  * added getFileExtension
  * added isArrayEqual

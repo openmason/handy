@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Handy by openmason</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Handy</h1>
+        <p>common node.js server side utility functions</p>
+
+        <p class="view"><a href="https://github.com/openmason/handy">View the Project on GitHub <small>openmason/handy</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/openmason/handy/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/openmason/handy/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/openmason/handy">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><a href="http://travis-ci.org/openmason/handy"><img src="https://secure.travis-ci.org/openmason/handy.png" alt="build status"></a></p>
+
+<h1>handy</h1>
+
+<p>Bunch of common utility functions</p>
+
+<h2>Functionality</h2>
+
+<ul>
+<li>
+<p>getVersion</p>
+
+<ul>
+<li>arguments
+
+<ol>
+<li>path where package.json is present (optional)</li>
+</ol>
+</li>
+<li>returns
+
+<ul>
+<li>value of 'version' in package.json (or)</li>
+<li>emptry string if unable to find package.json</li>
+</ul>
+</li>
+<li>
+<p>example:</p>
+
+<pre><code>var handy = require('handy');
+var ver = handy.getVersion(__dirname);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>getUserHome</p>
+
+<ul>
+<li>
+<p>returns - home directory for current user (platform agnostic)</p>
+
+<pre><code>var handy = require('handy');
+var home = handy.getUserHome();
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>getType</p>
+
+<ul>
+<li>arguments
+
+<ol>
+<li>object - for which type to be determined</li>
+</ol>
+</li>
+<li>
+<p>returns - type of the object in lowercase ('number', 'array', 'object', 'regex' ...)</p>
+
+<pre><code>var handy = require('handy');
+var xyz = [1,2,3];
+if(handy.getType(xyz)=='array') { 
+  ... do something ...
+};
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>getFileExtension</p>
+
+<ul>
+<li>arguments
+
+<ol>
+<li>filename - filename for which the extension to be returned</li>
+<li>defaultExt - default extension if no extension found</li>
+</ol>
+</li>
+<li>
+<p>returns - extension from the filename (or) defaultExt </p>
+
+<pre><code>var handy = require('handy');
+var x = "abc/this/there.x.y.j"
+var r = handy.getFileExtension(x);
+// r =&gt; 'j'
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>isArrayEqual - check if two arrays are equal, irrespective of order of elements</p>
+
+<ul>
+<li>arguments: pass two array objects</li>
+<li>
+<p>returns - true (if both arrays are equal), else false</p>
+
+<pre><code>var handy = require('handy');
+var x = [93,1,6], y=[6,93,1];
+var r = handy.isArrayEqual(x,y);
+// r =&gt; true
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>merge - shallow merge objects</p>
+
+<ul>
+<li>arguments
+
+<ol>
+<li>variable arguments, pass objects that needs to be merged</li>
+</ol>
+</li>
+<li>
+<p>returns - merged object (or) {} </p>
+
+<pre><code>var handy = require('handy');
+var x = {a:1}, y={b:2}, z={a:4,c:5};
+var r = handy.merge(x,y,z);
+// r =&gt; {a:4, b:2, c:5}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>deepMerge - merge objects, all hashes at all levels are merged (arrays left intact)</p>
+
+<ul>
+<li>arguments
+
+<ol>
+<li>variable arguments, pass objects that needs to be deep merged</li>
+</ol>
+</li>
+<li>
+<p>returns - merged object (or) {} </p>
+
+<pre><code>var handy = require('handy');
+var x = {a:1,p:{a:5}}, y={b:2}, z={a:4,c:5,p:{a:3,b:11}};
+var r = handy.deepMerge(x,y,z);
+// r =&gt; {a:4, b:2, c:5, p:{a:3,b:11}}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul><h2>Install</h2>
+
+<pre><code>$ npm install handy
+# please include handy to your package.json
+</code></pre>
+
+<h2>Test cases</h2>
+
+<p>To execute full test cases</p>
+
+<pre><code>$ make
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/openmason">openmason</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

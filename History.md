@@ -1,4 +1,5 @@
-# release 0.0.11
+# release 0.0.12
+ * added isObjectEqual
  * only works nodejs > 0.8
  * added travis-ci
  * added getFileExtension

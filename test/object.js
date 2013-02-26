@@ -4,6 +4,7 @@ var assert=require('assert');
 // verify object functions
 // - getType
 // - isArrayEqual
+// - isObjectEqual
 // - merge
 // - deepMerge
 describe('object', function() {
@@ -77,6 +78,61 @@ describe('object', function() {
     it('not equal', function(done) {
       var x = [1,2,7], y=[7,5,2];
       assert.equal(handy.isArrayEqual(x,y), false);
+      done();
+    });
+  });
+
+  // -- isObjectEqual
+  describe('isObjectEqual', function() {
+    it('object and number', function(done) {
+      var x = {}, y=123;
+      assert.equal(handy.isObjectEqual(x,y), false);
+      done();
+    });
+    it('array and number', function(done) {
+      var x = [123], y=123;
+      assert.equal(handy.isObjectEqual(x,y), false);
+      done();
+    });
+    it('two objects with different keys', function(done) {
+      var x = {b:'a'}, y={a:'a'};
+      assert.equal(handy.isObjectEqual(x,y), false);
+      done();
+    });
+    it('two objects with same values but different types', function(done) {
+      var x = {b:'5'}, y={b:5};
+      assert.equal(handy.isObjectEqual(x,y), false);
+      done();
+    });
+    it('two objects with same values but different types - 2', function(done) {
+      var x = {b:'5'}, y={b:['5']};
+      assert.equal(handy.isObjectEqual(x,y), false);
+      done();
+    });
+    it('two objects with different order of arrays (but same values)', function(done) {
+      var x = {b:[1,2,3]}, y={b:[2,3,1]};
+      assert.equal(handy.isObjectEqual(x,y), false);
+      done();
+    });
+    // validity test cases
+    it('empty equal', function(done) {
+      var x = {}, y={};
+      assert.equal(handy.isObjectEqual(x,y), true);
+      done();
+    });
+    it('ordered equality', function(done) {
+      var x = {a:'a',b:12}, y={a:'a',b:12};
+      assert.equal(handy.isObjectEqual(x,y), true);
+      done();
+    });
+    it('not ordered equal', function(done) {
+      var x = {a:'a',b:12,c:[1,2]}, y={c:[1,2],a:'a',b:12};
+      assert.equal(handy.isObjectEqual(x,y), true);
+      done();
+    });
+    it('deep order mismatch', function(done) {
+      var x = {a:'a',b:12,c:{c1:'a',c2:[1,2]}}, y={b:12,c:{c2:[1,2],c1:'a'},a:'a'};
+      assert.equal(handy.isObjectEqual(x,y), true);
       done();
     });
   });

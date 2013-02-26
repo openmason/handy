@@ -74,6 +74,25 @@ exports.isArrayEqual = function (arrayOne, arrayTwo) {
 };
 
 /**
+ * Compare if two objects are equal/not.
+ * 
+ * [returns] true if both objects are equal (or) false if not equal
+ */
+exports.isObjectEqual = function (objectOne, objectTwo) {
+  var self = this;
+  /* sort the elements in object */
+  function sort(o) {
+    if (self.getType(o) === 'object') {
+      return Object.keys(o).sort().map(function(key) {
+        return { k: key, v: sort(o[key]) };
+      });
+    } 
+    return o;
+  }
+  // get a json output and compare each
+  return JSON.stringify(sort(objectOne)) === JSON.stringify(sort(objectTwo));
+};
+/**
  * Merge (one level) objects and return back
  * the combined object.
  * -- pass in multiple arguments

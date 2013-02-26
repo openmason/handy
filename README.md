@@ -53,6 +53,15 @@ Bunch of common utility functions
             var r = handy.isArrayEqual(x,y);
             // r => true
 
+  * isObjectEqual - check if two objects are equal, irrespective of order of keys (if value is an array, it is expected to be in same order)
+    * arguments: pass two objects
+    * returns - true (if both arrays are equal), else false
+    
+            var handy = require('handy');
+            var x = {a:'hello', b:{scores:[1,2,3], name:'tal'}, id:123}, y={id:123,a:'hello',b:{name:'tal',scores:[1,2,3]}};
+            var r = handy.isObjectEqual(x,y);
+            // r => true
+
   * merge - shallow merge objects
     * arguments
       1. variable arguments, pass objects that needs to be merged

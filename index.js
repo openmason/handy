@@ -92,6 +92,8 @@ exports.isObjectEqual = function (objectOne, objectTwo) {
   // get a json output and compare each
   return JSON.stringify(sort(objectOne)) === JSON.stringify(sort(objectTwo));
 };
+
+
 /**
  * Merge (one level) objects and return back
  * the combined object.

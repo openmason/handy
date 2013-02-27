@@ -55,7 +55,7 @@ Bunch of common utility functions
 
   * isObjectEqual - check if two objects are equal, irrespective of order of keys (if value is an array, it is expected to be in same order)
     * arguments: pass two objects
-    * returns - true (if both arrays are equal), else false
+    * returns - true (if both objects are equal), else false
     
             var handy = require('handy');
             var x = {a:'hello', b:{scores:[1,2,3], name:'tal'}, id:123}, y={id:123,a:'hello',b:{name:'tal',scores:[1,2,3]}};

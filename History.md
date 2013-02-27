@@ -1,4 +1,4 @@
-# release 0.0.12
+# release 0.0.13
  * added isObjectEqual
  * only works nodejs > 0.8
  * added travis-ci

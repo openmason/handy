@@ -23,7 +23,7 @@ exports.getVersion = function (packageDir) {
   // check if file is present
   pathName = path.join(pathName, 'package.json');
   if(fs.existsSync(pathName)) {
-    return fs.readFileSync(pathName).toString().match(/"version"\s*:\s*"([\d.]+)"/)[1];
+    return fs.readFileSync(pathName).toString().match(/"version"\s*:\s*"([\d.|\d-]+)"/)[1];
   }
   return "";
 };
